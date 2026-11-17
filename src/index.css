@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Public Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #claim-dossier-printable,
+  #claim-dossier-printable * {
+    visibility: visible;
+  }
+  #claim-dossier-printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 24px !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
